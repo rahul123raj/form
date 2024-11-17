@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import '../assets/style/studentData.css'
 
 const StudentData = () => {
 
@@ -30,7 +31,9 @@ let handleEdit = async (id) =>{
   return (
     <>
       <div className="table">
-        <h1>Studets Details</h1>
+        <div className="heading">
+        <h1>Students Details</h1>
+        </div>
         <table>
           <thead>
             <tr>
@@ -43,6 +46,7 @@ let handleEdit = async (id) =>{
               <th>actions</th>
             </tr>
           </thead>
+          
           <tbody>
             {
               data.map((elem,i)=>{
@@ -58,14 +62,15 @@ let handleEdit = async (id) =>{
                   <td>{branch}</td>
                   <td>
                     
-                    <button onClick={() => handleEdit(_id)}>Edit</button>
-                    <button onClick={()=> handleDelete(_id)}>Delete</button>
+                    <button id='edit' onClick={() => handleEdit(_id)}>Edit</button>
+                    <button id='delete' onClick={()=> handleDelete(_id)}>Delete</button>
                   </td>
                   </tr>
                 )
               })
             }
           </tbody>
+        
         </table>
       </div>
 

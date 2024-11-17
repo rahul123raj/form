@@ -1,10 +1,12 @@
 import React, { useRef, useState } from 'react';
 import '../assets/style/form.css';
+import { useNavigate } from 'react-router-dom';
 
 const Form = () => {
   const [student, setStudent] = useState({});
   const formData = useRef();
   const [cnf, setcnf] = useState(false);
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,6 +35,8 @@ const Form = () => {
     });
 
     console.log('Data is posted');
+     
+        navigate(`/studentdata`)
   };
 
   const handlecancel = (e) => {
@@ -42,21 +46,23 @@ const Form = () => {
 
   return (
     <div className="form">
-      <h1>Fill the Details</h1>
       <form onSubmit={handleSubmit} ref={formData}>
+      <h1>Fill the Details</h1>
+
         <input type="text" placeholder="Name" />
         <input type="text" placeholder="Email" />
         <input type="text" placeholder="Mobile Number" />
         <input type="text" placeholder="Address" />
         <input type="text" placeholder="Branch" />
-        <input type="submit" value="Submit" />
+        <button type='submit'>Submit</button>
       </form>
 
       {cnf && (
+        <div className="preview">
         <table>
           <thead>
-            <tr>
-              <th>Preview</th>
+            <tr >
+              <th colSpan={2}>Preview</th>
             </tr>
           </thead>
           <tbody>
@@ -80,14 +86,14 @@ const Form = () => {
               <td>Branch</td>
               <td>{student.branch}</td>
             </tr>
-            <tr>
-               <button onClick={handleclick}>OK</button>
-              
-                <button onClick={handlecancel}>Cancel</button>
-              
-            </tr>
+            
           </tbody>
         </table>
+        <div className="btns">
+                  <button id='ok' onClick={handleclick}>OK</button>
+                  <button id='cancel' onClick={handlecancel}>Cancel</button>
+        </div>
+        </div>
       )}
     </div>
   );

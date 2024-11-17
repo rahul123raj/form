@@ -1,8 +1,14 @@
 import React from 'react'
+import home from '../assets/images/home.jpg'
+import '../assets/style/navbar.css'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <>
+    <div className="home">
+      <img src={home} alt="" />
+    </div>
+    </>
   )
 }
 

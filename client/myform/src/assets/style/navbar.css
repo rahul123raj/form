@@ -1,5 +1,15 @@
 *{margin: 0;padding: 0;}
 
+.home{
+    height: 80vh;
+    width: 100vw;
+}
+
+.home img{
+    height: 100%;
+    width: 100%;
+}
+
 .navbar{
     width: 100vw;
     height: 15vh;
@@ -41,4 +51,9 @@
     text-shadow: 0 0 15px rgb(121, 121, 118);
     font-size: larger;
 
+}
+
+.navbar a:hover{
+    /* text-shadow: 2px 0px 2px rgb(243, 243, 243); */
+    border-bottom: 1.5px solid lightgoldenrodyellow;
 }

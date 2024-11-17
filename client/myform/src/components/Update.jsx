@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import '../assets/style/form.css'
 
 const Update = () => {
     let navigate = useNavigate()
@@ -56,15 +57,18 @@ const Update = () => {
   return (
     <>
         <div className="update">
-            <h1>Edit your details</h1>
             <form action="" ref={updateform} onSubmit={handleupdate}>
+            <h1>Edit your details</h1>
                 <input type="text" defaultValue={olddata[0].name} />
                 <input type="text" defaultValue={olddata[0].email} />
                 <input type="text" defaultValue={olddata[0].mobno} />
                 <input type="text" defaultValue={olddata[0].address} />
                 <input type="text" defaultValue={olddata[0].branch} />
+                <div className="btn">
                 <button type='submit' >Update</button>
                 <button onClick={handleCancel}>Cancel</button>
+                </div>
+
             </form>
         </div>
     </>
