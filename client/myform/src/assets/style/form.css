@@ -1,0 +1,9 @@
+*{
+    margin: 0;padding: 0;
+}
+
+.form{
+    width: 100vw;
+    height: 85vh;
+    background-color: rgba(146, 114, 71, 0.637);
+}
