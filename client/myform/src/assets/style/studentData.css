@@ -3,7 +3,7 @@
 .table{
     max-height: 70vh;
     overflow: auto;
-    width: 75vw;
+    width: 80vw;
     background-color: lightcoral;
     margin:20px  auto;
     display: grid;
@@ -20,13 +20,14 @@
     z-index: 1;
     position: sticky;
     background-color: silver;
-
+    height: 70px;
 }
 
 .table h1{
     text-transform: uppercase;
     word-spacing: 10px;
     letter-spacing: 3px;
+    
     
 }
 
@@ -45,11 +46,12 @@
     height: 50px;
     background-color: turquoise;
     position: sticky;
-    top: 15%;
+    top: 69px;
     z-index: 1;
     text-transform: capitalize;
     font-size: larger;
     letter-spacing: 1px;
+    
 }
 
 .table table tbody tr{
@@ -77,4 +79,9 @@
 
 .table table tbody tr:hover{
     background-color: lightgray;
+}
+
+.table img{
+    border: 2px solid black;
+    border-radius: 5px;
 }

@@ -38,6 +38,7 @@ let handleEdit = async (id) =>{
           <thead>
             <tr>
               <th>srno</th>
+              <th>photo</th>
               <th>name</th>
               <th>email</th>
               <th>mobile no</th>
@@ -50,11 +51,16 @@ let handleEdit = async (id) =>{
           <tbody>
             {
               data.map((elem,i)=>{
-                let {name,mobno,email,address,branch,_id} = elem
+                let {name,mobno,email,address,branch,_id,imgurl} = elem
 
                 return(
                   <tr>
                   <td>{i+1}</td>
+                  <td>
+                  
+                        <img src={imgurl} alt="" width="150px" height="150px" border />
+                  
+                  </td>
                   <td>{name}</td>
                   <td>{mobno}</td>
                   <td>{email}</td>
