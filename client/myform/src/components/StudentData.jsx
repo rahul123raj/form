@@ -6,19 +6,22 @@ const StudentData = () => {
   let navigate = useNavigate();
   let [data, setData] = useState([]);
   // let [iddata , setIdata] = useState({})
+  const [bool, setBool] = useState(false)
 
   useEffect(() => {
     fetch("https://form-m5lt.onrender.com/form")
       .then((data) => data.json())
       .then((res) => setData(res.payload));
-  }, []);
+  }, [bool]);
 
   // console.log(data)
 
   let handleDelete = async (id) => {
+    setBool(true)
     await fetch(`https://form-m5lt.onrender.com/form/${id}`, {
       method: "Delete",
     });
+    setBool(false)
   };
 
   let handleEdit = async (id) => {
@@ -71,7 +74,7 @@ const StudentData = () => {
                       Edit
                     </button>
                     <button id="delete" onClick={() => handleDelete(_id)}>
-                      Delete
+                      {bool ? "Deleting..." : "Delete"}
                     </button>
                   </td>
                 </tr>
