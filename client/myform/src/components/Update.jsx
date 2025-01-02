@@ -31,7 +31,7 @@ const Update = () => {
   ]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/form/${id}`)
+    fetch(`https://form-m5lt.onrender.com/form/${id}`)
       .then((data) => data.json())
       .then((res) => setolddata(res.payload));
   }, [id]);
@@ -51,7 +51,7 @@ const Update = () => {
       formdata.append("address", updateform.current[4].value);
       formdata.append("branch", updateform.current[5].value);
 
-      await fetch(`http://localhost:5000/form/${id}`, {
+      await fetch(`https://form-m5lt.onrender.com/form/${id}`, {
         method: "PATCH",
 
         body: formdata,
