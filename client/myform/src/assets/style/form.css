@@ -1,177 +1,182 @@
-*{
-    margin: 0;padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.form{
-    width: 100vw;
-    height: 85vh;
-    background-color: rgba(146, 114, 71, 0.637);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+.form {
+  width: 100vw;
+  height: 85vh;
+  background-color: rgba(146, 114, 71, 0.637);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.form form{
-    width: 30vw;
-    height: 70vh;
-    /* background-color: aquamarine; */
-    background: transparent;
-    box-shadow: 0 0 20px grey;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    border-radius: 15px;
+.form form {
+  width: 30vw;
+  height: 70vh;
+  /* background-color: aquamarine; */
+  background: transparent;
+  box-shadow: 0 0 20px grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 15px;
 }
 
-.form form input, .update form input{
-    padding: 10px;
-    width: 80%;
-    height: 22px;
-    border-radius: 10px;
-    font-size: large;
-    border: none;
-    border-bottom: 2px solid black;
+.form form input,
+.update form input {
+  padding: 10px;
+  width: 80%;
+  height: 22px;
+  border-radius: 10px;
+  font-size: large;
+  border: none;
+  border-bottom: 2px solid black;
 }
 
-.update form .btn{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 90%;
+.update form .btn {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 90%;
 }
 
-.form form button[type='submit'], .update form .btn button{
-    padding: 15px;
-    width: 35%;
-    background-color: green;
-    font-family: monospace;
-    font-size: x-large;
-    font-weight: bolder;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    cursor: pointer;
+.form form button[type="submit"],
+.update form .btn button {
+  padding: 15px;
+  width: 35%;
+  background-color: green;
+  font-family: monospace;
+  font-size: x-large;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  cursor: pointer;
 }
-.form table{
-    width: 25vw;
-    height: 60vh;
-    background-color: rgb(63, 201, 201);
-    border-collapse: collapse;
-    border-radius: 15px;
-    
-}
-
-.form table td,.form table tr,.form table th{
-    border: 1px solid black;
-    height: 30px;
-    text-align: center;
+.form table {
+  width: 25vw;
+  height: 60vh;
+  background-color: rgb(63, 201, 201);
+  border-collapse: collapse;
+  border-radius: 15px;
 }
 
-.form table td{
-    width: 50%;
+.form table td,
+.form table tr,
+.form table th {
+  border: 1px solid black;
+  height: 30px;
+  text-align: center;
 }
 
-.form table th{
-    height: 45px;
-    background-color: rgb(165, 211, 119);
-    border-radius:15px 15px 0 0  ;
+.form table td {
+  width: 50%;
 }
 
-.preview{
-    height: 70vh;
-    background-color: yellow;
-    display: flex;
-    flex-direction: column;
+.form table th {
+  height: 45px;
+  background-color: rgb(165, 211, 119);
+  border-radius: 15px 15px 0 0;
 }
 
-.preview .btns{
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: yellowgreen;
+.preview {
+  height: 70vh;
+  background-color: yellow;
+  display: flex;
+  flex-direction: column;
 }
 
-.preview .btns #ok,.preview .btns #cancel{
-    padding: 5px;
-    font-size: large;
-    font-weight: bolder;
-    font-family: monospace;
-    border-radius: 10px;
-    width: 40%;
-    cursor: pointer;
+.preview .btns {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: yellowgreen;
 }
 
-.form .pic{
-    /* background-color: orange; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.preview .btns #ok,
+.preview .btns #cancel {
+  padding: 5px;
+  font-size: large;
+  font-weight: bolder;
+  font-family: monospace;
+  border-radius: 10px;
+  width: 40%;
+  cursor: pointer;
 }
 
-.form .pic label{
-    font-size: large;
+.form .pic {
+  /* background-color: orange; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.update{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    height: 85vh;
-    background-color: rgba(146, 114, 71, 0.637);
+.form .pic label {
+  font-size: large;
 }
 
-.update form{
-    display: flex;
-    width: 80vw;
-    height: 70vh;
-    justify-content: space-evenly;
-    align-items: center;
+.update {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 85vh;
+  background-color: rgba(146, 114, 71, 0.637);
 }
 
-.update form .inputs{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 30vw;
-    height: 60vh;
-    box-shadow: 0 0 20px grey;
-    border-radius: 10px;
+.update form {
+  display: flex;
+  width: 80vw;
+  height: 70vh;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.update form .updatepic{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 40vh;
-    width: 20vw;
-    box-shadow: 0 0 20px grey;
-    border-radius: 10px;
+.update form .inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 30vw;
+  height: 60vh;
+  box-shadow: 0 0 20px grey;
+  border-radius: 10px;
 }
 
-.update form .updatepic input{
-    display: none;
+.update form .updatepic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 40vh;
+  width: 20vw;
+  box-shadow: 0 0 20px grey;
+  border-radius: 10px;
 }
 
-.update form .updatepic label{
-    background-color: rgb(10, 210, 245);
-    padding: 10px 35px;
-    font-size: x-large;
-    font-weight: bold;
-    letter-spacing: 2px;
-    border-radius: 5px;
-    font-family: monospace;
-    cursor: pointer;
-    border: 2px solid black;
+.update form .updatepic input {
+  display: none;
 }
 
-.update form .updatepic img{
-    border: 1px solid black;
-    border-radius: 5px;
+.update form .updatepic label {
+  background-color: rgb(10, 210, 245);
+  padding: 10px 35px;
+  font-size: x-large;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  font-family: monospace;
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+.update form .updatepic img {
+  border: 1px solid black;
+  border-radius: 5px;
 }

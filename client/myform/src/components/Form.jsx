@@ -1,19 +1,29 @@
-import React, { useRef, useState } from 'react';
-import '../assets/style/form.css';
-import { useNavigate } from 'react-router-dom';
+import React, { useRef, useState } from "react";
+import "../assets/style/form.css";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
   const [student, setStudent] = useState({});
   const formData = useRef();
   const [cnf, setcnf] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [bool, setBool] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const name = formData.current[1].value;
+
+    const capitalizeName = name
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+
     const data = {
-      photo: URL.createObjectURL(formData.current[0].files[0]),
-      name: formData.current[1].value,
+      photo: formData.current[0].files[0]
+        ? URL.createObjectURL(formData.current[0].files[0])
+        : null,
+      name: capitalizeName,
       email: formData.current[2].value,
       mobno: formData.current[3].value,
       address: formData.current[4].value,
@@ -25,28 +35,31 @@ const Form = () => {
   };
 
   const handleclick = async (e) => {
-      try {
-            // e.preventDefault();
-let {name,email,mobno,address,branch} = student
-let formdata = new FormData()
-formdata.append('file',formData.current[0].files[0])
-formdata.append('name',name)
-formdata.append('email',email)
-formdata.append('mobno',mobno)
-formdata.append('address',address)
-formdata.append('branch',branch)
+    try {
+      // e.preventDefault();
+      setBool(true);
+      let { name, email, mobno, address, branch } = student;
+      let formdata = new FormData();
+      formdata.append("file", formData.current[0].files[0]);
+      formdata.append("name", name);
+      formdata.append("email", email);
+      formdata.append("mobno", mobno);
+      formdata.append("address", address);
+      formdata.append("branch", branch);
 
-await fetch('http://localhost:5000/form', {
-  method: 'POST',
-  body: formdata,
-});
+      await fetch("http://localhost:5000/form", {
+        method: "POST",
+        body: formdata,
+      });
 
-console.log('Data is posted');
- 
-    navigate(`/studentdata`)
-      } catch (error) {
-        console.log(error)
-      }
+      console.log("Data is posted");
+
+      navigate(`/studentdata`);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setBool(false);
+    }
   };
 
   const handlecancel = (e) => {
@@ -59,59 +72,69 @@ console.log('Data is posted');
   return (
     <div className="form">
       <form onSubmit={handleSubmit} ref={formData}>
-      <h1>Fill the Details</h1>
+        <h1>Fill the Details</h1>
         <div className="pic">
-        <label for="photo">Upload Passport Size Photo:</label>
-        <input type="file" accept="image/*" id='photo' />
+          <label for="photo">Upload Passport Size Photo:</label>
+          <input type="file" accept="image/*" id="photo" required/>
         </div>
-        <input type="text" placeholder="Name" />
-        <input type="text" placeholder="Email" />
-        <input type="text" placeholder="Mobile Number" />
-        <input type="text" placeholder="Address" />
-        <input type="text" placeholder="Branch" />
-        <button type='submit'>Submit</button>
+        <input type="text" placeholder="Name" required/>
+        <input type="text" placeholder="Email" required/>
+        <input type="text" placeholder="Mobile Number" required/>
+        <input type="text" placeholder="Address" required/>
+        <input type="text" placeholder="Branch" required/>
+        <button type="submit">Submit</button>
       </form>
 
       {cnf && (
         <div className="preview">
-        <table>
-          <thead>
-            <tr >
-              <th colSpan={2}>Preview</th>
-            </tr>
-          </thead>
-          <tbody>
-          <tr>
-              <td>photo</td>
-              <td><img src={student.photo} alt="student pic" width="150px" height="150px" /></td>
-            </tr>
-            <tr>
-              <td>Name</td>
-              <td>{student.name}</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>{student.email}</td>
-            </tr>
-            <tr>
-              <td>Mob No</td>
-              <td>{student.mobno}</td>
-            </tr>
-            <tr>
-              <td>Address</td>
-              <td>{student.address}</td>
-            </tr>
-            <tr>
-              <td>Branch</td>
-              <td>{student.branch}</td>
-            </tr>
-            
-          </tbody>
-        </table>
-        <div className="btns">
-                  <button id='ok' onClick={handleclick}>OK</button>
-                  <button id='cancel' onClick={handlecancel}>Cancel</button>
-        </div>
+          <table>
+            <thead>
+              <tr>
+                <th colSpan={2}>Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>photo</td>
+                <td>
+                  <img
+                    src={student.photo}
+                    alt="student pic"
+                    width="150px"
+                    height="150px"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Name</td>
+                <td>{student.name}</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>{student.email}</td>
+              </tr>
+              <tr>
+                <td>Mob No</td>
+                <td>{student.mobno}</td>
+              </tr>
+              <tr>
+                <td>Address</td>
+                <td>{student.address}</td>
+              </tr>
+              <tr>
+                <td>Branch</td>
+                <td>{student.branch}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div className="btns">
+            <button id="ok" onClick={handleclick}>
+              {bool ? "Loading..." : "OK"}
+            </button>
+            <button id="cancel" onClick={handlecancel}>
+              Cancel
+            </button>
+          </div>
         </div>
       )}
     </div>

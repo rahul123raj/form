@@ -1,38 +1,35 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import '../assets/style/studentData.css'
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../assets/style/studentData.css";
 
 const StudentData = () => {
+  let navigate = useNavigate();
+  let [data, setData] = useState([]);
+  // let [iddata , setIdata] = useState({})
 
-  let navigate = useNavigate()
-let [data , setData] = useState([])
-// let [iddata , setIdata] = useState({})
-
-useEffect(()=>{
-  fetch('http://localhost:5000/form')
-  .then(data => data.json())
-  .then(res => setData(res.payload))
-},[data])
-
-
+  useEffect(() => {
+    fetch("http://localhost:5000/form")
+      .then((data) => data.json())
+      .then((res) => setData(res.payload));
+  }, []);
 
   // console.log(data)
 
-  let handleDelete =async (id) =>{
+  let handleDelete = async (id) => {
     await fetch(`http://localhost:5000/form/${id}`, {
-      method: 'Delete',
+      method: "Delete",
     });
-  }
+  };
 
-let handleEdit = async (id) =>{
-  navigate(`/studentdata/update/${id}`)
-}
+  let handleEdit = async (id) => {
+    navigate(`/studentdata/update/${id}`);
+  };
 
   return (
     <>
       <div className="table">
         <div className="heading">
-        <h1>Students Details</h1>
+          <h1>Students Details</h1>
         </div>
         <table>
           <thead>
@@ -47,19 +44,22 @@ let handleEdit = async (id) =>{
               <th>actions</th>
             </tr>
           </thead>
-          
-          <tbody>
-            {
-              data.map((elem,i)=>{
-                let {name,mobno,email,address,branch,_id,imgurl} = elem
 
-                return(
-                  <tr>
-                  <td>{i+1}</td>
+          <tbody>
+            {data.map((elem, i) => {
+              let { name, mobno, email, address, branch, _id, imgurl } = elem;
+
+              return (
+                <tr>
+                  <td>{i + 1}</td>
                   <td>
-                  
-                        <img src={imgurl} alt="" width="150px" height="150px" border />
-                  
+                    <img
+                      src={imgurl}
+                      alt=""
+                      width="150px"
+                      height="150px"
+                      border
+                    />
                   </td>
                   <td>{name}</td>
                   <td>{mobno}</td>
@@ -67,22 +67,21 @@ let handleEdit = async (id) =>{
                   <td>{address}</td>
                   <td>{branch}</td>
                   <td>
-                    
-                    <button id='edit' onClick={() => handleEdit(_id)}>Edit</button>
-                    <button id='delete' onClick={()=> handleDelete(_id)}>Delete</button>
+                    <button id="edit" onClick={() => handleEdit(_id)}>
+                      Edit
+                    </button>
+                    <button id="delete" onClick={() => handleDelete(_id)}>
+                      Delete
+                    </button>
                   </td>
-                  </tr>
-                )
-              })
-            }
+                </tr>
+              );
+            })}
           </tbody>
-        
         </table>
       </div>
-
-
     </>
-  )
-}
+  );
+};
 
-export default StudentData
+export default StudentData;
