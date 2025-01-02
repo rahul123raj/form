@@ -47,7 +47,7 @@ const Form = () => {
       formdata.append("address", address);
       formdata.append("branch", branch);
 
-      await fetch("https://form-m5lt.onrender.com", {
+      await fetch("https://form-m5lt.onrender.com/form", {
         method: "POST",
         body: formdata,
       });
