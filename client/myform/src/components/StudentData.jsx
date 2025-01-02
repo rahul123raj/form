@@ -21,6 +21,7 @@ const StudentData = () => {
     await fetch(`https://form-m5lt.onrender.com/form/${id}`, {
       method: "Delete",
     });
+    alert("data is successfully Deleted")
     setBool(false)
   };
 
