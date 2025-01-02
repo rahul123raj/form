@@ -8,7 +8,7 @@ const StudentData = () => {
   // let [iddata , setIdata] = useState({})
 
   useEffect(() => {
-    fetch("http://localhost:5000/form")
+    fetch("https://form-m5lt.onrender.com/form")
       .then((data) => data.json())
       .then((res) => setData(res.payload));
   }, []);
@@ -16,7 +16,7 @@ const StudentData = () => {
   // console.log(data)
 
   let handleDelete = async (id) => {
-    await fetch(`http://localhost:5000/form/${id}`, {
+    await fetch(`https://form-m5lt.onrender.com/form/${id}`, {
       method: "Delete",
     });
   };
